@@ -1,0 +1,170 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>io.github.try-parser</groupId>
+	<artifactId>fte.api</artifactId>
+	<version>1.0</version>
+	<packaging>jar</packaging>
+	
+	<name>${project.groupId}:${project.artifactId}</name>
+	<description>Universal API using hibernate and Springframework</description>
+	<url>https://github.com/Try-Parser/fte.api.git</url>
+	
+	<licenses>
+	  <license>
+	    <name>MIT License</name>
+	    <url>http://www.opensource.org/licenses/mit-license.php</url>
+	  </license>
+	</licenses>
+	
+	<developers>
+		<developer>
+			<name>Franklin Embate</name>
+			<email>ferox.dragon@gmail.com</email>
+			<organization>Try-Parser</organization>
+			<organizationUrl>https://github.com/Try-Parser/fte.api.git</organizationUrl>
+		</developer>
+	</developers>
+	
+	<scm>
+		<connection>scm:git:git://github.com/Try-Parser/fte.api.git</connection>
+		<developerConnection>scm:git:ssh://github.com/Try-Parser/fte.api.git</developerConnection>
+		<url>https://github.com/Try-Parser/fte.api/tree/master</url>
+	</scm>
+
+	<properties>
+		<spring.version>5.0.5.RELEASE</spring.version>
+		<hibernate.version>5.2.16.Final</hibernate.version>
+		<hibernate-validator.version>6.0.9.Final</hibernate-validator.version>
+		<codehouse.version>1.9.13</codehouse.version>
+	</properties>
+ 
+	<dependencies>
+	
+		<dependency>
+			 <groupId>org.codehaus.jackson</groupId>
+			 <artifactId>jackson-core-asl</artifactId>
+			 <version>${codehouse.version}</version>
+		</dependency>
+		
+		<dependency> 
+			 <groupId>org.codehaus.jackson</groupId>
+			 <artifactId>jackson-mapper-asl</artifactId>
+			 <version>${codehouse.version}</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-core</artifactId>
+		    <version>${hibernate.version}</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator -->
+		<dependency>
+		    <groupId>org.hibernate.validator</groupId>
+		    <artifactId>hibernate-validator</artifactId>
+		    <version>${hibernate-validator.version}</version>
+		</dependency>
+		
+				<!-- Java 9 Dependencies -->
+		<dependency>
+		    <groupId>javax.xml.bind</groupId>
+		    <artifactId>jaxb-api</artifactId>
+		    <version>2.3.0</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-webmvc</artifactId>
+		    <version>${spring.version}</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-core</artifactId>
+		    <version>${spring.version}</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-web</artifactId>
+		    <version>${spring.version}</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-orm -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-orm</artifactId>
+		    <version>${spring.version}</version>
+		</dependency>
+	</dependencies>
+ 
+	<distributionManagement>
+	  <snapshotRepository>
+	    <id>ossrh</id>
+	    <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+	  </snapshotRepository>
+	  <repository>
+	    <id>ossrh</id>
+	    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+	  </repository>
+	</distributionManagement>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>10</source>
+					<target>10</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+				<version>3.7.0</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>3.0.1</version>
+				<executions>
+				  <execution>
+				    <id>attach-sources</id>
+				    <goals>
+				      <goal>jar-no-fork</goal>
+				    </goals>
+				  </execution>
+				</executions>
+			 </plugin>
+			 <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>3.0.1</version>
+				<executions>
+				  <execution>
+				    <id>attach-javadocs</id>
+				    <goals>
+				      <goal>jar</goal>
+				    </goals>
+				  </execution>
+				</executions>
+			 </plugin>
+			<plugin>
+			    <groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-gpg-plugin</artifactId>
+			    <version>1.6</version>
+			    <executions>
+			      <execution>
+			        <id>sign-artifacts</id>
+			        <phase>verify</phase>
+			        <goals>
+			          <goal>sign</goal>
+			        </goals>
+			      </execution>
+			    </executions>
+			</plugin>
+		 </plugins>
+	</build>
+</project>
