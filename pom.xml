@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.github.try-parser</groupId>
 	<artifactId>fte.api</artifactId>
-	<version>1.0</version>
+	<version>1.2</version>
 	<packaging>jar</packaging>
 	
 	<name>${project.groupId}:${project.artifactId}</name>
@@ -32,14 +32,13 @@
 	</scm>
 
 	<properties>
-		<spring.version>5.0.5.RELEASE</spring.version>
+		<spring.version>5.1.1.RELEASE</spring.version>
 		<hibernate.version>5.2.16.Final</hibernate.version>
 		<hibernate-validator.version>6.0.9.Final</hibernate-validator.version>
 		<codehouse.version>1.9.13</codehouse.version>
 	</properties>
  
-	<dependencies>
-	
+	<dependencies>	    
 		<dependency>
 			 <groupId>org.codehaus.jackson</groupId>
 			 <artifactId>jackson-core-asl</artifactId>
